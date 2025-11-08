@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Patient registration&appointment</title>
+</head>
+<body>
+    <header>
+        <nav>
+         <span class="fs-4">HealthPoint<i class="bi bi-hospital ps-2"></i></span>
+            <div class="records">
+                <span class="me-5"><a href="patientrecords.html">Patient Records </a></span>
+                <span><a href="appointments.html">Appointments </a></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="add-patient">
+            <h3>Add Patient</h3>
+            <form id="patientForm" class="add-patient form">
+                    <label for="patientname" class="form-label">Patient Name</label>
+                    <input type="text" class="form-control" id="patientname" required>
+
+                    <div class="age-gender">
+                        <label for="patientage" class="form-label">Age</label>
+                     <input type="number" min="1" max="100" class="form-control" id="patientage" required>
+                     <label for="patientgender" class="form-label">Gender</label>
+                        <select class="form-select" id="patientgender" required>
+                         <option value="" disabled selected>Select gender</option>
+                         <option value="male">Male</option>
+                         <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="contact-email">
+                        <label for="patientcontact" class="form-label">Contact Number</label>
+                        <input type="tel" maxlength="15" minlength="10" pattern="[0-9]{10,15}" oninput="this.value = this.value.replace(/[^0-9]/g, '')"  class="form-control" id="patientcontact" required>
+                        <label for="patientemail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="patientemail">
+                    </div>
+
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" required>
+                    <button type="submit" class="btn btn-primary mt-3">Save Patient</button>
+            </form>
+        </section>
+        
+        <section class="book-appointment">
+            <h3>Book Appointment</h3>
+        <form id="appointmentForm" class="book-appointment form">
+            <label for="selectpatient" class="form-label">Select Patient</label>
+             <input list="patientlist" class="form-control" id="selectpatient" placeholder="Type or select patient" required>
+              <datalist id="patientlist"></datalist>
+
+
+            <div class="dept-dr">
+                <label for="selectdept" class="form-label">Select Department</label>
+                <select class="form-select" id="departments" required>
+                    <option value="" disabled selected>Select department</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                    <option value="General Medicine">General Medicine</option>
+                    <option value="Ophthalmology">Ophthalmology</option>
+                    <option value="ENT">ENT</option>
+                    <option value="Dentist">Dentist</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="Gynecology">Gynecology</option>
+                    <option value="Laboratory">Laboratory</option>
+                    <option value="Pulmonology">Pulmonology</option>
+                    <option value="Dermotology">Dermotology</option>
+                    <option value="Nephrology">Nephrology</option>
+                    <option value="Gastroenterology">Gastroenterology</option>
+                    <option value="Physchology">Physchology</option>
+                </select>
+
+                <label for="selectdr" class="form-label">Select Doctor</label>
+                <input list="drlist" class="form-control" id="selectdr" placeholder="Select doctor" required>
+                <datalist id="drlist" required>
+                    <option value="Dr. Ravi Kumar">
+                    <option value="Dr. Dinesh Kumar">
+                    <option value="Dr. Jaya Kumar">
+                    <option value="Dr. Ajith Kumar">
+                    <option value="Dr. Vinoth Kumar">
+                    <option value="Dr. Suresh Kumar">
+                    <option value="Dr. Kumari">
+                    <option value="Dr. Kumaresan">
+                    <option value="Dr. Kumaran">
+                    <option value="Dr. Ravi">
+                    <option value="Dr. Raguvaran">
+                    <option value="Dr. Suresh">
+                    <option value="Dr. Kumar">
+                    <option value="Dr. Abdul Basith">
+                    <option value=" Raviselvan">
+                    <option value=" Muthu Kumar">
+                    <option value="Dr. Bala Kumar">
+                    <option value="Dr.  Aisha Beevi">
+                    <option value="Dr. lakshmi">
+                    <option value="Dr. Muthukaruppan">
+                    <option value="Dr. Manickam">
+                    <option value="Dr. Karthikeyan">
+                    <option value="Dr. Sathish Kumar">
+                </datalist>
+            </div>
+
+           <label for="datetime" class="form-label">Select Date & Time</label>
+            <input type="datetime-local" class="form-control" id="datetime" required>
+
+            <div class="mb-3">
+              <label for="status" class="form-label">Status</label>
+               <select id="status" class="form-select">
+               <option value="Pending" selected>Pending</option>
+               <option value="Completed">Completed</option>
+               <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+
+            <button type="submit" id="bookAppointmentBtn" class="btn btn-primary mt-3">Book Appointment</button>
+        </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jawahar Ali Nishad. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
