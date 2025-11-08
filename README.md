@@ -1,7 +1,5 @@
 Project Title:
 Patient Registration and Appointment System.
-Submitted By:
-Jawahar Ali Nishad S
 Date:
  04 November 2025
 Objectives:
